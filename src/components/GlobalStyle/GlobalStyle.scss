@@ -3,14 +3,17 @@
 
 :root {
     --primary-color: red;
+    // defaul layout
+    --default-layout-header-height: 60px;
+    --default-layout-with:1150px
 }
 
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 html {
-    margin: 0;
-    padding: 0;
     font-size: 62.5%;
 }
 

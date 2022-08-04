@@ -2,7 +2,6 @@ import React from 'react';
 import { useRoutes } from 'react-router-dom';
 import HomeLayout from '../layouts/home';
 import UploadLayout from '../layouts/upload';
-import Upload from '../layouts/upload';
 import Following from '../pages/following/following';
 import Home from '../pages/home/home';
 import Profile from '../pages/profile/profile';
