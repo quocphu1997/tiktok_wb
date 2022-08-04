@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Following() {
   return (
-    <div>Following</div>
+    <div>Following Page</div>
   )
 }

@@ -1,19 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DefaultLayout from './components/Layout/DefaultLayout';
-import { publicRoutes } from './routes';
-
+import { BrowserRouter } from 'react-router-dom';
+import Router from './routes';
 function App() {
     return (
-        <Router>
-            <div className="App">
-                <Routes>
-                    {publicRoutes.map((route, index) => {
-                        const Page = route.component;
-                        return <Route key={index} path={route.path} element={<Page/>} />;
-                    })}
-                </Routes>
-            </div>
-        </Router>
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
     );
 }
 
