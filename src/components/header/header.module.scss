@@ -2,7 +2,7 @@
     --search-border-radius: 92px;
     --search-width: 52px;
     --search-height: 46px;
-    --search-spacer:18px;
+    --search-spacer: 18px;
 
     width: 100%;
     height: var(--default-layout-header-height);
@@ -15,11 +15,14 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        .searchbox,
+        .search-result {
+            width: 361px;
+        }
         .searchbox {
             position: relative;
             display: flex;
             align-items: center;
-            width: 361px;
             height: var(--search-height);
             padding-left: 16px;
             border: 1px solid white;
@@ -63,6 +66,16 @@
                     background: rgba(22, 24, 35, 0.03);
                     cursor: pointer;
                 }
+            }
+        }
+        .search-result {
+            .search-label {
+                height: 30px;
+                padding: 5px 12px;
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 600;
+                color: rgba(22, 24, 35, 0.5);
             }
         }
     }
