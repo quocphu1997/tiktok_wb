@@ -4,9 +4,10 @@ import classNames from 'classnames/bind';
 import image from '../../assets/images/logo';
 import Tippy from '@tippyjs/react/headless'; // different import path!
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import {  faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { wrapper as PopperWrapper } from '../Proper';
 import AccountItem from '../searchAccountItem/account.item';
+import Button from '../Button/button';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +16,7 @@ export default function Header() {
 
     useEffect(() => {
         setTimeout(() => {
-            setSearchResult([1, 2, 3]);
+            setSearchResult([]);
         }, 0);
     }, []);
     return (
@@ -64,8 +65,12 @@ export default function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    <button>Login</button>
-                    <button>Logout</button>
+                    <Button text >
+                        + Upload
+                    </Button>
+                    <Button primary >
+                        Log in
+                    </Button>
                 </div>
             </div>
         </header>
