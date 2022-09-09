@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 export default function AccountItem() {
     return (
         <div className={cx('wrapper')}>
-            <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/27fb8d42672710d2cbe7493b3a5a8ab2~c5_300x300.webp?x-expires=1660374000&x-signature=Lt6ttF6z%2BpRfsVbIUjHemK0G1Uw%3D" alt="nva" />
+            <img className={cx('avatar')} src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/dc60cb071cfa78089851f938d59db628.jpeg?x-expires=1662865200&x-signature=5Rx2RQdCDdwT%2FRWHHx%2Fhi90iqYA%3D" alt="nva" />
             <div className={cx('info')}>
                 <p className={cx('name')}>
                     <span>Nguyen van a</span>

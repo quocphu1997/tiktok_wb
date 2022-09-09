@@ -7,14 +7,19 @@ const cx = classNames.bind(style);
 
 export default function Button({
     to,
+    href,
     primary = false,
     outline = false,
+    text = false,
+    rounded = false,
+    disable = false,
     small = false,
     large = false,
-    href,
-    onClick,
     children,
-    text,
+    className,
+    leftIcon,
+    rightIcon,
+    onClick,
     ...passProps
 }) {
     let Comp = 'button';
@@ -23,6 +28,13 @@ export default function Button({
         onClick,
         ...passProps,
     };
+    if (disable) {
+        Object.keys(props).forEach((key) => {
+            if (key.startsWith('on') && typeof props[key] === 'function') {
+                delete props[key];
+            }
+        });
+    }
     if (to) {
         props.to = to;
         Comp = Link;
@@ -31,15 +43,21 @@ export default function Button({
         Comp = 'a';
     }
     const classes = cx('wrapper', {
+        [className]: className,
         primary,
         outline,
+        text,
+        disable,
+        rounded,
         small,
         large,
-        text
     });
     return (
         <Comp className={classes} {...props}>
-            <span>{children}</span>
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx("title")}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }
+ 

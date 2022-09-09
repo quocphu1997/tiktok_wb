@@ -78,6 +78,29 @@
                 color: rgba(22, 24, 35, 0.5);
             }
         }
-
+    }
+    .action {
+        display: flex;
+        align-items: center;
+        .more-menu-items{
+            width: 224px;
+            padding-top: 5px;
+        }
+        .more-btn {
+            width: 20px;
+            height: 20px;
+            margin-left: 15px;
+            display: block;
+            font-size: 17px;
+            background-color: var(--white);
+        }
+        .search-label {
+            height: 30px;
+            padding: 5px 12px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            color: rgba(22, 24, 35, 0.5);
+        }
     }
 }

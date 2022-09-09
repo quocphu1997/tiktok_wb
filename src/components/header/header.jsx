@@ -4,14 +4,31 @@ import classNames from 'classnames/bind';
 import image from '../../assets/images/logo';
 import Tippy from '@tippyjs/react/headless'; // different import path!
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV, faGlobeAsia, faLanguage, faPlus, faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import { wrapper as PopperWrapper } from '../Proper';
 import AccountItem from '../searchAccountItem/account.item';
 import Button from '../Button/button';
+import Menupoper from '../Proper/menu/menupoper';
+import { faKeyboard, faQuestionCircle } from '@fortawesome/free-regular-svg-icons';
 
 const cx = classNames.bind(styles);
 
 export default function Header() {
+    const MENU_ITEMS = [
+        {
+            icon: <FontAwesomeIcon icon={faGlobeAsia} />,
+            title: 'English',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faQuestionCircle} />,
+            title: 'Feedback and help',
+            to: '/feedback',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faKeyboard} />,
+            title: 'Keyboard shortcuts',
+        },
+    ];
     const [searchResult, setSearchResult] = useState([]);
 
     useEffect(() => {
@@ -65,12 +82,13 @@ export default function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('action')}>
-                    <Button text >
-                        + Upload
-                    </Button>
-                    <Button primary >
-                        Log in
-                    </Button>
+                    <Button text> <FontAwesomeIcon icon={faPlus}/> Upload</Button>
+                    <Button primary>Log in</Button>
+                    <Menupoper items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisV} />
+                        </button>
+                    </Menupoper>
                 </div>
             </div>
         </header>

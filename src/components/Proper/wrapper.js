@@ -4,6 +4,6 @@ import styles from './proper.module.scss';
 
 const cx = classNames.bind(styles);
 
-export default function wrapper({ children }) {
-    return <div className={cx('wrapper')}>{children}</div>;
+export default function wrapper({ children, className }) {
+    return <div className={cx('wrapper',className)}>{children}</div>;
 }
