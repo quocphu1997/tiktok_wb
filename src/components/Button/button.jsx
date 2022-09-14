@@ -38,7 +38,8 @@ export default function Button({
     if (to) {
         props.to = to;
         Comp = Link;
-    } else if (href) {
+    } 
+    else if (href) {
         props.href = href;
         Comp = 'a';
     }

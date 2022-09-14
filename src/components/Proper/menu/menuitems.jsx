@@ -5,6 +5,13 @@ import styles from './menupoper.module.scss';
 
 const cx = classNames.bind(styles);
 
-export default function Menuitems({ data }) {
-    return <Button className={cx('menu-item')} leftIcon={data.icon}>{data.title}</Button>;
+export default function Menuitems({ data, onClick }) {
+    const classes = cx('menu-item', {
+        separate: data.separate,
+    });
+    return (
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
+            {data.title}
+        </Button>
+    );
 }

@@ -83,6 +83,13 @@
     .action {
         display: flex;
         align-items: center;
+        .action-btn{
+            color: #161823;
+            font-size: 2.2rem;
+            background-color: transparent;
+            padding: 4px 12px;
+            cursor: pointer;
+        }
         .more-menu-items {
             width: 224px;
             padding-top: 5px;
@@ -102,6 +109,13 @@
             line-height: 20px;
             font-weight: 600;
             color: rgba(22, 24, 35, 0.5);
+        }
+        .user-avatar{
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+            border-radius: 999px;
+            margin-left: 12px;
         }
     }
 }
