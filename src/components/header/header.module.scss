@@ -13,6 +13,7 @@
         height: 100%;
         width: var(--default-layout-with);
         display: flex;
+        padding: 0 var(--default-layout-horizontal-spacer);
         align-items: center;
         justify-content: space-between;
         .searchbox,
@@ -82,7 +83,7 @@
     .action {
         display: flex;
         align-items: center;
-        .more-menu-items{
+        .more-menu-items {
             width: 224px;
             padding-top: 5px;
         }
