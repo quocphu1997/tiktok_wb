@@ -25,6 +25,8 @@ import AccountItem from '../searchAccountItem/account.item';
 import Button from '../Button/button';
 import Menupoper from '../Proper/menu/menupoper';
 import { faKeyboard, faQuestionCircle, faUser } from '@fortawesome/free-regular-svg-icons';
+import { InboxIcon, MessageIcon, UploadIcon } from '../Icons/icon';
+import Image from '../ImageComp/imagecomp';
 
 const cx = classNames.bind(styles);
 
@@ -151,14 +153,21 @@ export default function Header() {
                 <div className={cx('action')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 10]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon/>
                                 </button>
                             </Tippy>
-                            {/* <button className={cx("action-btn")}>
-                                <FontAwesomeIcon icon={faMessage} />
-                            </button> */}
+                            <Tippy delay={[0, 10]} content="Messages" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <MessageIcon/>
+                                </button>
+                            </Tippy>
+                            <Tippy delay={[0, 10]} content="Inbox" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <InboxIcon/>
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
@@ -171,7 +180,7 @@ export default function Header() {
                     )}
                     <Menupoper items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img className={cx('user-avatar')} src="https://picsum.photos/200/200" alt="abc" />
+                            <Image className={cx('user-avatar')} src="https://picsum.photos/200/200" alt="abc" />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisV} />
