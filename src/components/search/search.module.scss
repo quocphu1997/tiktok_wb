@@ -33,7 +33,6 @@
     }
     input:not(:placeholder-shown) ~ .search-btn .search-icon {
         fill: rgba(22, 24, 35, 0.75);
-        
     }
     .clear,
     .spinner {
@@ -41,7 +40,9 @@
         color: rgba(22, 24, 35, 0.34);
         right: calc(var(--search-width) + 10px);
     }
-
+    .spinner{
+        animation: spinner 1s linear infinite;
+    }
     .search-btn {
         display: flex;
         align-items: center;
@@ -67,5 +68,14 @@
         line-height: 20px;
         font-weight: 600;
         color: rgba(22, 24, 35, 0.5);
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }

@@ -21,11 +21,8 @@ export default function Router() {
                     element: <Following />,
                 },
                 {
-                    path: '/profile',
+                    path: '/:nickname/profile',
                     element: <Profile />,
-                    children:[{
-                        
-                    }]
                 },
             ],
         },

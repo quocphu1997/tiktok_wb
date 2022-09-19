@@ -3,10 +3,13 @@ import styles from './search.module.scss';
 import classNames from 'classnames/bind';
 import { faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless'; // different import path!
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { wrapper as PopperWrapper } from '../Proper';
 import AccountItem from '../searchAccountItem/account.item';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '../Icons/icon';
+import useDebounce from '../../hooks/useDebounce';
+import request from '../../utils/request';
 
 const cx = classNames.bind(styles);
 
@@ -14,19 +17,33 @@ export default function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
     const [showResult, setShowResult] = useState(true);
+    const [loadingSearch, setLoadingSearch] = useState(false);
 
+    const debounced = useDebounce(searchValue, 700);
     const inputRef = useRef();
-
 
     useEffect(() => {
         if (!searchValue.trim()) {
+            setSearchResult([]);
             return;
         }
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${searchValue}&type=less`)
-            .then((respone) => respone.json())
-            .then((result) => setSearchResult(result.data))
-            .catch((error) => console.log('error', error));
-    }, [searchValue]);
+        setLoadingSearch(true);
+        request
+            .get(`/users/search`, {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
+            .then((result) => {
+                setSearchResult(result.data.data);
+                setLoadingSearch(false);
+            })
+            .catch((error) => {
+                console.log('error', error);
+                setLoadingSearch(false);
+            });
+    }, [debounced]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -64,12 +81,12 @@ export default function Search() {
                     onChange={(event) => setSearchValue(event.target.value)}
                     onFocus={() => setShowResult(true)}
                 />
-                {!!searchValue && (
+                {!!searchValue && !loadingSearch && (
                     <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faXmarkCircle} />
                     </button>
                 )}
-                {/* <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} /> */}
+                {loadingSearch && <FontAwesomeIcon className={cx('spinner')} icon={faSpinner} />}
                 <button className={cx('search-btn')}>
                     <SearchIcon className={cx('search-icon')} />
                 </button>
