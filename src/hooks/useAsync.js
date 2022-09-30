@@ -10,7 +10,7 @@ export const useAsync = ({ dependencies = [], service, condition = true }) => {
 
     const fetchData = async () => {
         const result = await service();
-        setState(result.data.data);
+        setState(result);
     };
     return {
         state,

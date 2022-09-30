@@ -1,9 +1,16 @@
-import request from '../utils/request';
+import * as request from '../../src/utils/request';
 
-const fetchSearchApi = (debounced, type) =>
-    request({
-        url: `users/search?q=${debounced}&type=${type}`,
-        method: 'GET',
-    });
-
-export { fetchSearchApi };
+const SearchApi = async (q, type = 'less') => {
+    try {
+        const res = await request.get('/users/search', {
+            params: {
+                q: q,
+                type: type,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        console.log(error);
+    }
+};
+export { SearchApi };

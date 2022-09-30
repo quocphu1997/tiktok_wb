@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 import styles from './search.module.scss';
 import classNames from 'classnames/bind';
 import { faSpinner, faXmarkCircle } from '@fortawesome/free-solid-svg-icons';
@@ -9,7 +10,8 @@ import { wrapper as PopperWrapper } from '../Proper';
 import AccountItem from '../searchAccountItem/account.item';
 import { SearchIcon } from '../Icons/icon';
 import useDebounce from '../../hooks/useDebounce';
-import request from '../../utils/request';
+import * as request from '../../utils/request';
+import { SearchApi } from '../../service/searchServiceApi';
 
 const cx = classNames.bind(styles);
 
@@ -27,22 +29,14 @@ export default function Search() {
             setSearchResult([]);
             return;
         }
-        setLoadingSearch(true);
-        request
-            .get(`/users/search`, {
-                params: {
-                    q: debounced,
-                    type: 'less',
-                },
-            })
-            .then((result) => {
-                setSearchResult(result.data.data);
-                setLoadingSearch(false);
-            })
-            .catch((error) => {
-                console.log('error', error);
-                setLoadingSearch(false);
-            });
+        const fetchApi = async () => {
+            setLoadingSearch(true);
+            const result = await SearchApi(debounced);
+            setSearchResult(result);
+
+            setLoadingSearch(false);
+        };
+        fetchApi();
     }, [debounced]);
 
     const handleClear = () => {
