@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
-export default function Menupoper({ children, items = [], onChange = defaultFn }) {
+export default function Menupoper({ children, hideOnClick = false, items = [], onChange = defaultFn }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -37,6 +37,7 @@ export default function Menupoper({ children, items = [], onChange = defaultFn }
         <Tippy
             interactive
             placement="bottom-end"
+            hideOnClick={hideOnClick}
             delay={[0, 700]}
             offset={[12, 6]}
             render={(attrs) => (

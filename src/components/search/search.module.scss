@@ -30,6 +30,7 @@
         height: 100%;
         caret-color: var(--primary-color);
         background-color: transparent;
+        font-family: var(--font-family);
     }
     input:not(:placeholder-shown) ~ .search-btn .search-icon {
         fill: rgba(22, 24, 35, 0.75);
@@ -40,7 +41,7 @@
         color: rgba(22, 24, 35, 0.34);
         right: calc(var(--search-width) + 10px);
     }
-    .spinner{
+    .spinner {
         animation: spinner 1s linear infinite;
     }
     .search-btn {

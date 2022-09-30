@@ -10,6 +10,8 @@
     --default-layout-header-height: 60px;
     --default-layout-with: 1150px;
     --default-layout-horizontal-spacer: 24px;
+
+    --font-family: 'Proximanova', sans-serif;
 }
 // Fonts embeded
 @font-face {
@@ -33,9 +35,6 @@
     font-weight: 700;
 }
 
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -46,7 +45,7 @@ html {
 }
 
 body {
-    font-family: 'Proximanova', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
