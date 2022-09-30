@@ -122,11 +122,11 @@ export default function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>
+                            <Button text >
                                 {' '}
                                 <FontAwesomeIcon icon={faPlus} /> Upload
                             </Button>
-                            <Button primary>Log in</Button>
+                            <Button primary >Log in</Button>
                         </>
                     )}
                     <Menupoper items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
