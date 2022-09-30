@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import classNames from 'classnames/bind';
 import styles from './menupoper.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,4 +15,9 @@ export default function Headermenu({ title, onBack }) {
             <h4 className={cx('header-title')}>{title}</h4>
         </header>
     );
+}
+
+Headermenu.propTypes = {
+    title: PropTypes.string.isRequired,
+    onBack: PropTypes.func.isRequired,
 }
