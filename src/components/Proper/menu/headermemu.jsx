@@ -9,7 +9,7 @@ export default function Headermenu({ title, onBack }) {
     return (
         <header className={cx('header-menu')}>
             <button className={cx('back-btn')} onClick={onBack}>
-                <FontAwesomeIcon icon={faChevronLeft} />
+                <FontAwesomeIcon  icon={faChevronLeft} />
             </button>
             <h4 className={cx('header-title')}>{title}</h4>
         </header>

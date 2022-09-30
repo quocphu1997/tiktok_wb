@@ -15,7 +15,7 @@ import Button from '../Button/button';
 import Menupoper from '../Proper/menu/menupoper';
 import Image from '../ImageComp/imagecomp';
 import Search from '../search/search';
-import routesConfig from '../../configs/routes';
+import config from '../../configs';
 
 
 // 
@@ -94,7 +94,7 @@ export default function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <div className={cx('logo')}>
-                    <NavLink className={cx('link-logo')} to={routesConfig.home}>
+                    <NavLink className={cx('link-logo')} to={config.routes.home}>
                         <img src={image.logo} alt="tiktok" />
                     </NavLink>
                 </div>

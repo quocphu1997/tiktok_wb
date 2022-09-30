@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 const defaultFn = () => {};
-export default function Menupoper({ children, hideOnClick = false, items = [], onChange = defaultFn }) {
+export default function Menupoper({ children, hideOnClick = false, items = [], onChange = defaultFn}) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
@@ -51,7 +51,7 @@ export default function Menupoper({ children, hideOnClick = false, items = [], o
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}> {renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

@@ -5,30 +5,30 @@ import UploadLayout from '../layouts/upload';
 import Following from '../pages/following/following';
 import Home from '../pages/home/home';
 import Profile from '../pages/profile/profile';
-import routesConfig from '../configs/routes';
+import config from '../configs';
 
 export default function Router() {
     const routing = useRoutes([
         {
-            path: routesConfig.home,
+            path: config.routes.home,
             element: <HomeLayout />,
             children: [
                 {
-                    path: routesConfig.home,
+                    path: config.routes.home,
                     element: <Home />,
                 },
                 {
-                    path: routesConfig.following,
+                    path: config.routes.following,
                     element: <Following />,
                 },
                 {
-                    path: routesConfig.profile,
+                    path: config.routes.profile,
                     element: <Profile />,
                 },
             ],
         },
         {
-            path: routesConfig.upload,
+            path: config.routes.upload,
             element: <UploadLayout />,
         }
     ]);
