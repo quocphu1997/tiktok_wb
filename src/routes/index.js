@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
-import HomeLayout from '../layouts/home';
-import UploadLayout from '../layouts/upload';
-import Following from '../pages/following/following';
-import Home from '../pages/home/home';
-import Profile from '../pages/profile/profile';
 import config from '../configs';
+
+const HomeLayout = lazy(() => import('../layouts/home'));
+const UploadLayout = lazy(() => import('../layouts/upload'));
+const Following = lazy(() => import('../pages/following/following'));
+const Home = lazy(() => import('../pages/home/home'));
+const Profile = lazy(() => import('../pages/profile/profile'));
+const Live = lazy(() => import('../components/Live/Live'));
 
 export default function Router() {
     const routing = useRoutes([
@@ -25,12 +27,16 @@ export default function Router() {
                     path: config.routes.profile,
                     element: <Profile />,
                 },
+                {
+                    path: config.routes.live,
+                    element: <Live />,
+                },
             ],
         },
         {
             path: config.routes.upload,
             element: <UploadLayout />,
-        }
+        },
     ]);
 
     return routing;
