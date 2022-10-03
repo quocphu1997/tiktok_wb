@@ -2,7 +2,14 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './sidebar.module.scss';
 import MenuSidebar, { MenuItems } from './menu-sidebar';
-import { HomeActiveIcon, HomeIcon, LiveActiveIcon, LiveIcon, UserGroupActiveIcon, UserGroupIcon } from '../Icons/icon';
+import {
+    HomeActiveIcon,
+    HomeIcon,
+    LiveActiveIcon,
+    LiveIcon,
+    UserGroupActiveIcon,
+    UserGroupIcon,
+} from '../../components/Icons/icon';
 import config from '../../configs';
 
 const cx = classNames.bind(styles);
