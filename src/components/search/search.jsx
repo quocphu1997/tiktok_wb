@@ -16,10 +16,10 @@ const cx = classNames.bind(styles);
 export default function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loadingSearch, setLoadingSearch] = useState(false);
 
-    const debounced = useDebounce(searchValue, 700);
+    const debouncedValue = useDebounce(searchValue, 700);
     const inputRef = useRef();
 
     useEffect(() => {
@@ -29,13 +29,13 @@ export default function Search() {
         }
         const fetchApi = async () => {
             setLoadingSearch(true);
-            const result = await SearchApi(debounced);
+            const result = await SearchApi(debouncedValue);
             setSearchResult(result);
 
             setLoadingSearch(false);
         };
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
@@ -47,7 +47,16 @@ export default function Search() {
     };
     const renderAccountItem = () => {
         return searchResult.map((ele) => {
-            return <AccountItem key={ele.id} data={ele} />;
+            return (
+                <AccountItem
+                    key={ele.id}
+                    data={ele}
+                    onClick={() => {
+                        handleHideResult();
+                        setSearchValue('');
+                    }}
+                />
+            );
         });
     };
 

@@ -28,7 +28,7 @@ export default function Header() {
             icon: <FontAwesomeIcon icon={faGlobeAsia} />,
             title: 'English',
             children: {
-                title: 'language',
+                title: 'Language',
                 data: [
                     {
                         type: 'language',
@@ -98,6 +98,7 @@ export default function Header() {
                         <img src={image.logo} alt="tiktok" />
                     </NavLink>
                 </div>
+                   
                 {/* search */}
                 <Search />
                 <div className={cx('action')}>
@@ -121,11 +122,11 @@ export default function Header() {
                         </>
                     ) : (
                         <>
-                            <Button text>
+                            <Button text >
                                 {' '}
                                 <FontAwesomeIcon icon={faPlus} /> Upload
                             </Button>
-                            <Button primary>Log in</Button>
+                            <Button primary >Log in</Button>
                         </>
                     )}
                     <Menupoper items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>

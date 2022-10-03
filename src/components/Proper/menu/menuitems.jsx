@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from '../../Button/button';
 import classNames from 'classnames/bind';
 import styles from './menupoper.module.scss';
@@ -15,3 +16,8 @@ export default function Menuitems({ data, onClick }) {
         </Button>
     );
 }
+
+Menuitems.propTypes = {
+    data: PropTypes.object.isRequired,
+    onClick: PropTypes.func,
+};
