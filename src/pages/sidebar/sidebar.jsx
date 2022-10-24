@@ -34,6 +34,7 @@ export default function Sidebar() {
                 <MenuItems title="Live" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </MenuSidebar>
             <SuggestedAccounts label='Suggested accounts'/>
+            <SuggestedAccounts label='following accounts'/>
         </aside>
     );
 }
